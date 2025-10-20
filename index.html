@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electoral Bond Case: Association for Democratic Reforms v. Union of India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Root variables for theming */
+        :root {
+            /* Light Mode (Default) */
+            --bg-color: #f0f2f5; /* Light gray background */
+            --content-bg: #FFFFFF; /* White content card */
+            --text-color: #333333; /* Dark gray text */
+            --heading-color: #1a1a1a; /* Black for headings */
+            --meta-color: #666666; /* Medium gray for meta */
+            --link-color: #007bff; /* Blue for links */
+            --border-color: #e0e0e0; /* Light border */
+            --nav-bg: rgba(255, 255, 255, 0.7); /* Frosted light nav */
+            --v-color: #DC143C; /* Crimson Red for 'v.' */
+            --date-color: #8A2BE2; /* BlueViolet for date */
+            --ruling-highlight-bg: #FFFF00; /* Yellow highlight */
+            --ruling-highlight-text: #1a1a1a;
+            --yes-outline: #28a745; /* Green */
+            --no-outline: #dc3545; /* Red */
+            --concurring-outline: #6a5acd; /* Purple */
+            --timeline-dot: #007bff; /* Blue timeline dot */
+        }
+
+        /* Dark mode variables */
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --content-bg: #2a2a2a; /* Darker card */
+            --text-color: #e0e0e0;
+            --heading-color: #FFFFFF;
+            --meta-color: #b0b0b0;
+            --link-color: #FFFF00; /* Yellow links */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --nav-bg: rgba(26, 26, 26, 0.7); /* Frosted dark nav */
+            --ruling-highlight-bg: #FFFF00;
+            --ruling-highlight-text: #1a1a1a;
+            --timeline-dot: #FFFF00; /* Yellow timeline dot */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 40px 80px 40px; /* Padding top for fixed nav */
+            box-sizing: border-box;
+        }
+
+        .content-card {
+            background-color: var(--content-bg);
+            border-radius: 12px;
+            padding: 50px 70px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Mock Nav */
+        .mock-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            color: var(--meta-color);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .mock-nav .left-section,
+        .mock-nav .right-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .mock-nav .left-section .nav-icon {
+            cursor: pointer;
+            font-size: 1.2em;
+            color: var(--meta-color);
+            transition: color 0.3s;
+        }
+        .mock-nav .left-section .nav-icon:hover {
+            color: var(--link-color);
+        }
+        .mock-nav .center-text {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 500;
+            color: var(--heading-color);
+            transition: color 0.3s;
+        }
+        /* Toggle Switch */
+        .theme-toggle { position: relative; display: inline-block; width: 40px; height: 24px; }
+        .theme-toggle input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: 0.4s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: 0.4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #2196F3; }
+        input:checked + .slider:before { transform: translateX(16px); }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .back-link {
+            font-size: 1.1em;
+            color: var(--meta-color);
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .title {
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin: 0;
+            line-height: 1.3;
+        }
+        .title .v-text {
+            color: var(--v-color);
+            font-style: italic;
+        }
+        .meta-info {
+            font-size: 1.1em;
+            color: var(--meta-color);
+            margin-top: 15px;
+        }
+        .meta-info .date {
+            color: var(--date-color);
+            font-weight: 500;
+        }
+
+        /* Justice Section (Screenshot 64) */
+        .justice-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px 40px;
+            margin: 50px 0 30px 0;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .justice-card {
+            text-align: center;
+            flex: 0 0 auto;
+            width: 120px;
+        }
+        .justice-card .photo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: var(--heading-color);
+            background-color: var(--bg-color); /* Placeholder background */
+        }
+        .justice-card.yes .photo-circle { border-color: var(--yes-outline); }
+        .justice-card.no .photo-circle { border-color: var(--no-outline); }
+        .justice-card.concurring .photo-circle { border-color: var(--concurring-outline); }
+
+        .justice-card p {
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 0;
+            line-height: 1.3;
+            color: var(--meta-color);
+        }
+
+        .ruling-info {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        .ruling-text {
+            background-color: var(--ruling-highlight-bg);
+            color: var(--ruling-highlight-text);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* Standard text */
+        p {
+            font-size: 1.2em; /* Slightly smaller than before to match screenshots */
+            margin-bottom: 2em;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+
+        /* Case Details Section (Screenshot 73) */
+        .case-details-section {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 50px;
+        }
+        .details-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .detail-item {
+            flex: 1;
+        }
+        .detail-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--link-color);
+            font-weight: 500;
+        }
+        .judges-list { list-style: none; padding: 0; margin: 0; }
+        .judge-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .judge-item .opinion {
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        .judge-item .opinion.yes { color: var(--yes-outline); }
+        .judge-item .opinion.concurring { color: var(--concurring-outline); }
+
+        .acts-citations-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .acts-citations-row strong {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+        .acts-citations-row ul {
+            list-style: decimal;
+            padding-left: 20px;
+            margin: 0;
+            color: var(--meta-color);
+        }
+        .acts-citations-row ul li { margin-bottom: 8px; }
+        .acts-citations-row a { color: var(--link-color); }
+
+        /* Thin Separator */
+        .thin-separator {
+            width: 100%;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 50px 0;
+        }
+
+        /* Timeline Section (Screenshot 71) */
+        .timeline-section {
+            position: relative;
+            margin: 60px 0;
+            padding: 20px 0;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: var(--border-color);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-item .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 10px; /* Adjust alignment */
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--timeline-dot);
+            border: 3px solid var(--content-bg);
+            z-index: 2;
+        }
+        .timeline-card {
+            width: calc(50% - 40px); /* 50% minus gap */
+            background-color: var(--content-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd) .timeline-card {
+            margin-left: calc(50% + 40px); /* 50% plus gap */
+        }
+        .timeline-item:nth-child(even) .timeline-card {
+            margin-left: 0;
+        }
+        .timeline-card h4 {
+            color: var(--link-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .timeline-card p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        .timeline-card .date {
+            font-size: 0.9em;
+            color: var(--meta-color);
+        }
+
+        /* Arguments Section (image_858a29.png) */
+        .arguments-section h3 {
+            font-size: 1.8em;
+            color: var(--heading-color);
+            margin-bottom: 25px;
+        }
+        .arguments-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .arguments-grid h4 {
+            font-size: 1.3em;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .arguments-grid ol {
+            font-size: 1.1em;
+            line-height: 1.7;
+            padding-left: 20px;
+            margin: 0;
+            color: var(--text-color);
+        }
+        .arguments-grid ol li {
+            margin-bottom: 15px;
+        }
+
+        /* Analysis, Verdict, Ratio */
+        .section-heading {
+            font-size: 1.8em;
+            color: var(--heading-color);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        .small-font-section {
+            font-size: 1.1em; /* Smaller font */
+            line-height: 1.7;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+            border: 1px solid var(--border-color);
+        }
+        .small-font-section h4 {
+            font-size: 1.5em;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .small-font-section p,
+        .small-font-section ul {
+            font-size: 1em;
+            margin-bottom: 0;
+            color: var(--text-color);
+        }
+        .small-font-section ul {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        /* Metadata Footer */
+        .metadata-footer {
+            text-align: center;
+            font-size: 1.1em;
+            color: var(--meta-color);
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body class="light-mode"> <div class="mock-nav">
+        <div class="left-section">
+            <span class="nav-icon" onclick="alert('Navigating Back!')">&lt;</span>
+            <span class="nav-icon" onclick="alert('Navigating Forward!')">&gt;</span>
+            <span class="nav-icon" onclick="alert('Refreshing Page!')">&#x21bb;</span>
+        </div>
+        <div class="center-text">Ramsey</div>
+        <div class="right-section">
+            <div class="theme-toggle-wrapper">
+                <label class="theme-toggle">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <span>☀️/🌙</span>
+            </div>
+            <span class="nav-icon">&#x2630;</span> <span class="nav-icon">&#x2716;</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-card">
+            <header class="header">
+                <a href="#" class="back-link">← Home</a>
+                <h1 class="title">Electoral Bond Case: Association for Democratic Reforms <span class="v-text">v.</span> Union of India</h1>
+                <p class="meta-info"><span class="date">Delivered: February 15, 2024</span> / 5-Judge Constitution Bench</p>
+            </header>
+
+            <div class="justice-section">
+                <div class="justice-card yes"><div class="photo-circle">CJI DYC</div><p>CJI D.Y. Chandrachud</p></div>
+                <div class="justice-card concurring"><div class="photo-circle">J SK</div><p>Justice Sanjiv Khanna</p></div>
+                <div class="justice-card yes"><div class="photo-circle">J BRG</div><p>Justice B.R. Gavai</p></div>
+                <div class="justice-card yes"><div class="photo-circle">J JBP</div><p>Justice J.B. Pardiwala</p></div>
+                <div class="justice-card yes"><div class="photo-circle">J MM</div><p>Justice Manoj Misra</p></div>
+            </div>
+
+            <div class="ruling-info">
+                Ruling: <span class="ruling-text">5-0 Unanimous</span>
+            </div>
+
+            <main>
+                <div class="intro-section">
+                    <p>The Supreme Court of India, in a landmark verdict on February 15, 2024, unanimously struck down the Electoral Bond Scheme as unconstitutional. The five-judge Constitution Bench held that the scheme violated the citizens' right to information under Article 19(1)(a) of the Constitution.</p>
+                </div>
+
+                <div class="case-details-section">
+                    <div class="details-row">
+                        <div class="detail-item">
+                            <strong>Plaintiff</strong>
+                            Association for Democratic Reforms (ADR) & Others
+                        </div>
+                        <div class="detail-item">
+                            <strong>Defendant</strong>
+                            Union of India
+                        </div>
+                    </div>
+                    <div class="details-row">
+                        <div class="detail-item">
+                            <strong>Case Type</strong>
+                            Public Interest Litigation (PIL)
+                        </div>
+                        <div class="detail-item">
+                            <strong>Year It Took</strong>
+                            2017 (Scheme launched) - 2024 (Decision)
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Judges & Opinions</strong>
+                        <ul class="judges-list">
+                            <li class="judge-item"><span>CJI D.Y. Chandrachud</span><span class="opinion yes">Favored</span></li>
+                            <li class="judge-item"><span>Justice Sanjiv Khanna</span><span class="opinion concurring">Favored (Concurring)</span></li>
+                            <li class="judge-item"><span>Justice B.R. Gavai</span><span class="opinion yes">Favored</span></li>
+                            <li class="judge-item"><span>Justice J.B. Pardiwala</span><span class="opinion yes">Favored</span></li>
+                            <li class="judge-item"><span>Justice Manoj Misra</span><span class="opinion yes">Favored</span></li>
+                        </ul>
+                    </div>
+                    <div class="thin-separator" style="margin-top: 30px; margin-bottom: 30px;"></div>
+                    <div class="acts-citations-row">
+                        <div class="detail-item">
+                            <strong>Acts & Sections Used [ 4 ]</strong>
+                            <ul>
+                                <li>Representation of the People Act, 1951</li>
+                                <li>Companies Act, 2013</li>
+                                <li>Finance Act, 2017</li>
+                                <li>Income Tax Act, 1961</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Key Citations [ 3 ]</strong>
+                            <ul>
+                                <li><a href="#">PUCL v. Union of India (2002)</a></li>
+                                <li><a href="#">Union of India v. Association for Democratic Reforms (2002)</a></li>
+                                <li><a href="#">K.S. Puttaswamy v. Union of India (2017)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-heading">Case Progression Timeline</h3>
+                <div class="timeline-section">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h4>Scheme Introduced</h4>
+                            <p>The Electoral Bond Scheme was introduced via the Finance Act, 2017.</p>
+                            <span class="date">2017</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h4>PILs Filed</h4>
+                            <p>NGOs, including Association for Democratic Reforms (ADR), file PILs challenging the scheme's constitutionality.</p>
+                            <span class="date">2017 - 2018</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h4>Interim Order by SC</h4>
+                            <p>Supreme Court passes an interim order directing political parties to submit details of electoral bonds to the ECI in sealed covers.</p>
+                            <span class="date">April 12, 2019</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h4>Hearing before Constitution Bench</h4>
+                            <p>A 5-judge Constitution Bench commences detailed hearings on the petitions challenging the scheme.</p>
+                            <span class="date">October - November 2023</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <h4>Judgment Delivered: Scheme Struck Down</h4>
+                            <p>The Supreme Court unanimously strikes down the Electoral Bond Scheme as unconstitutional, citing violations of Article 19(1)(a).</p>
+                            <span class="date">February 15, 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arguments-section">
+                    <h3 class="section-heading">ARGUMENTS</h3>
+                    <div class="arguments-grid">
+                        <div class="petitioners-case">
+                            <h4>Petitioner's Case (ADR & Others)</h4>
+                            <ol>
+                                <li>The scheme's anonymity violates the citizen's fundamental 'Right to Know' under Article 19(1)(a).</li>
+                                <li>It allows unlimited corporate donations, leading to quid pro quo and policy capture by wealthy interests.</li>
+                                <li>It creates an opaque system that is antithetical to free and fair elections, a part of the basic structure.</li>
+                                <li>The removal of the 7.5% profit cap on corporate donations is arbitrary and irrational.</li>
+                            </ol>
+                        </div>
+                        <div class="respondents-case">
+                            <h4>Respondent's Case (Union of India)</h4>
+                            <ol>
+                                <li>Anonymity is necessary to protect donors from retribution by political parties they did not support.</li>
+                                <li>The scheme promotes "clean money" by using official banking channels instead of unaccounted cash.</li>
+                                <li>The 'Right to Know' is not absolute and can be restricted in favor of donor privacy.</li>
+                                <li>Curbing black money in politics is a legitimate state interest that justifies the scheme.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thin-separator"></div>
+
+                <p>Chief Justice D.Y. Chandrachud, authoring the main opinion for himself and Justices Gavai, Pardiwala, and Misra, stated that the scheme's anonymity clause was antithetical to the principles of free and fair elections. Justice Sanjiv Khanna delivered a separate but concurring opinion, agreeing with the majority's conclusion but providing his own reasons for the unconstitutionality of the scheme.</p>
+                <p>The Court directed the State Bank of India (SBI) to immediately stop issuing Electoral Bonds and to submit details of all electoral bonds purchased since April 12, 2019, to the Election Commission of India (ECI) by March 6, 2024. The ECI was then mandated to publish this information on its official website by March 13, 2024.</p>
+
+                <div class="analysis-section">
+                    <h3 class="section-heading">COURT'S ANALYSIS</h3>
+                    <p>The Supreme Court's reasoning centered on the conflict between the right to information and the right to privacy. The Court held that the fundamental 'Right to Know' under Article 19(1)(a) extends to information about political party funding, as this is essential for voters to make informed choices. While the government argued for donor privacy, the Court found that this right was not absolute and did not justify the opaque nature of the scheme. The Court applied the test of proportionality, finding that the scheme was not the "least restrictive" measure to achieve the stated goal of curbing black money.</p>
+                </div>
+
+                <div class="small-font-section">
+                    <h4>FINAL VERDICT</h4>
+                    <ul>
+                        <li>The Electoral Bond Scheme, 2018 is struck down as unconstitutional.</li>
+                        <li>Amendments to the Companies Act (removing 7.5% cap) and Representation of the People Act are declared void.</li>
+                        <li>State Bank of India (SBI) is ordered to immediately cease issuing Electoral Bonds.</li>
+                        <li>SBI must submit full details of all bonds purchased and redeemed since April 2019 to the ECI.</li>
+                        <li>ECI must publish this information on its official website.</li>
+                    </ul>
+                </div>
+
+                <div class="small-font-section">
+                    <h4>RATIO DECIDENDI</h4>
+                    <p>The non-disclosure provisions of the Electoral Bond Scheme are violative of the fundamental 'Right to Information' under Article 19(1)(a) of the Constitution. Anonymity in political funding is unconstitutional as it infringes upon the public's right to be informed, which is essential for the functioning of a true democracy and free and fair elections.</p>
+                </div>
+
+                <div class="metadata-footer">
+                    Case No: Writ Petition (Civil) No. 880 of 2017 | Bench: 5-Judge Constitution Bench | Counsel: Adv. Prashant Bhushan (Petitioner), Att. Gen. R. Venkataramani (Respondent) | Hearing Dates: Oct 31 - Nov 2, 2023
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeSwitch = document.getElementById('theme-switch');
+        const body = document.body;
+
+        function setTheme(isLight) {
+            if (isLight) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+            }
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            themeSwitch.checked = (savedTheme === 'light');
+            setTheme(savedTheme === 'light');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            themeSwitch.checked = true;
+            setTheme(true);
+        } else {
+            themeSwitch.checked = false;
+            setTheme(false);
+        }
+
+        themeSwitch.addEventListener('change', () => {
+            setTheme(themeSwitch.checked);
+        });
+
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
+            if (!localStorage.getItem('theme')) {
+                themeSwitch.checked = event.matches;
+                setTheme(event.matches);
+            }
+        });
+
+        // Clickable nav icons (unchanged)
+        document.querySelector('.left-section .nav-icon:nth-child(1)').addEventListener('click', () => alert('Navigating Back!'));
+        document.querySelector('.left-section .nav-icon:nth-child(2)').addEventListener('click', () => alert('Navigating Forward!'));
+        document.querySelector('.left-section .nav-icon:nth-child(3)').addEventListener('click', () => alert('Refreshing Page!'));
+    </script>
+</body>
+</html>
