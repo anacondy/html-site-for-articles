@@ -192,6 +192,10 @@ Currently, the app uses JSON file storage. To use a database:
 
 ### Deployment Platforms
 
+- **GitHub Pages**: Automatically deploys static site via GitHub Actions workflow (see `.github/workflows/deploy-github-pages.yml`)
+  - The static `index.html` is served as the GitHub Pages site
+  - Workflow triggers on push to `main` branch
+  - Enable GitHub Pages in repository settings: Settings → Pages → Source: GitHub Actions
 - **Heroku**: Create a `Procfile` with `web: gunicorn app:app`
 - **PythonAnywhere**: Upload files and configure WSGI
 - **AWS/GCP**: Deploy using their respective app services
