@@ -411,6 +411,61 @@
             padding-top: 30px;
             border-top: 1px solid var(--border-color);
         }
+
+        /* Screenshots Section */
+        .screenshots-section {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid var(--border-color);
+        }
+        .screenshots-section h3 {
+            font-size: 1.8em;
+            color: var(--heading-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .screenshots-section p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .screenshot-item {
+            background-color: var(--content-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .screenshot-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .screenshot-caption {
+            padding: 15px 20px;
+            font-size: 1em;
+            color: var(--meta-color);
+            text-align: center;
+            font-weight: 500;
+        }
+        @media (min-width: 768px) {
+            .screenshot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body class="light-mode"> <div class="mock-nav">
@@ -455,6 +510,25 @@
             <main>
                 <div class="intro-section">
                     <p>The Supreme Court of India, in a landmark verdict on February 15, 2024, unanimously struck down the Electoral Bond Scheme as unconstitutional. The five-judge Constitution Bench held that the scheme violated the citizens' right to information under Article 19(1)(a) of the Constitution.</p>
+                </div>
+
+                <div class="screenshots-section">
+                    <h3>🌐 Live Site Screenshots</h3>
+                    <p>This site is now live on GitHub Pages! Below are screenshots showing the working Flask application interface with its professional design and features.</p>
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <img src="https://github.com/user-attachments/assets/df8be005-b57e-420f-8074-b2ff82264de0" alt="Homepage in Light Mode" loading="lazy">
+                            <div class="screenshot-caption">Homepage - Light Mode</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://github.com/user-attachments/assets/877978ed-562e-45cf-a0e3-df111c8bea52" alt="Homepage in Dark Mode" loading="lazy">
+                            <div class="screenshot-caption">Homepage - Dark Mode</div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://github.com/user-attachments/assets/25a6b409-0beb-4432-9726-2156c5f4cbd1" alt="Article Detail Page" loading="lazy">
+                            <div class="screenshot-caption">Article Detail Page with Full Content</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="case-details-section">
