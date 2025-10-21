@@ -1,0 +1,103 @@
+[
+  {
+    "title": "Electoral Bond Case: Association for Democratic Reforms v. Union of India",
+    "delivered_date": "February 15, 2024",
+    "bench_size": "5-Judge",
+    "intro": "The Supreme Court of India, in a landmark verdict on February 15, 2024, unanimously struck down the Electoral Bond Scheme as unconstitutional. The five-judge Constitution Bench held that the scheme violated the citizens' right to information under Article 19(1)(a) of the Constitution.",
+    "plaintiff": "Association for Democratic Reforms (ADR) & Others",
+    "defendant": "Union of India",
+    "case_type": "Public Interest Litigation (PIL)",
+    "year_range": "2017 (Scheme launched) - 2024 (Decision)",
+    "judges": [
+      {
+        "name": "CJI D.Y. Chandrachud",
+        "initials": "CJI DYC",
+        "opinion": "yes"
+      },
+      {
+        "name": "Justice Sanjiv Khanna",
+        "initials": "J SK",
+        "opinion": "concurring"
+      },
+      {
+        "name": "Justice B.R. Gavai",
+        "initials": "J BRG",
+        "opinion": "yes"
+      },
+      {
+        "name": "Justice J.B. Pardiwala",
+        "initials": "J JBP",
+        "opinion": "yes"
+      },
+      {
+        "name": "Justice Manoj Misra",
+        "initials": "J MM",
+        "opinion": "yes"
+      }
+    ],
+    "ruling": "5-0 Unanimous",
+    "acts": [
+      "Representation of the People Act, 1951",
+      "Companies Act, 2013",
+      "Finance Act, 2017",
+      "Income Tax Act, 1961"
+    ],
+    "citations": [
+      "PUCL v. Union of India (2002)",
+      "Union of India v. Association for Democratic Reforms (2002)",
+      "K.S. Puttaswamy v. Union of India (2017)"
+    ],
+    "timeline": [
+      {
+        "title": "Scheme Introduced",
+        "description": "The Electoral Bond Scheme was introduced via the Finance Act, 2017.",
+        "date": "2017"
+      },
+      {
+        "title": "PILs Filed",
+        "description": "NGOs, including Association for Democratic Reforms (ADR), file PILs challenging the scheme's constitutionality.",
+        "date": "2017 - 2018"
+      },
+      {
+        "title": "Interim Order by SC",
+        "description": "Supreme Court passes an interim order directing political parties to submit details of electoral bonds to the ECI in sealed covers.",
+        "date": "April 12, 2019"
+      },
+      {
+        "title": "Hearing before Constitution Bench",
+        "description": "A 5-judge Constitution Bench commences detailed hearings on the petitions challenging the scheme.",
+        "date": "October - November 2023"
+      },
+      {
+        "title": "Judgment Delivered: Scheme Struck Down",
+        "description": "The Supreme Court unanimously strikes down the Electoral Bond Scheme as unconstitutional, citing violations of Article 19(1)(a).",
+        "date": "February 15, 2024"
+      }
+    ],
+    "petitioner_arguments": [
+      "The scheme's anonymity violates the citizen's fundamental 'Right to Know' under Article 19(1)(a).",
+      "It allows unlimited corporate donations, leading to quid pro quo and policy capture by wealthy interests.",
+      "It creates an opaque system that is antithetical to free and fair elections, a part of the basic structure.",
+      "The removal of the 7.5% profit cap on corporate donations is arbitrary and irrational."
+    ],
+    "respondent_arguments": [
+      "Anonymity is necessary to protect donors from retribution by political parties they did not support.",
+      "The scheme promotes \"clean money\" by using official banking channels instead of unaccounted cash.",
+      "The 'Right to Know' is not absolute and can be restricted in favor of donor privacy.",
+      "Curbing black money in politics is a legitimate state interest that justifies the scheme."
+    ],
+    "analysis": "The Supreme Court's reasoning centered on the conflict between the right to information and the right to privacy. The Court held that the fundamental 'Right to Know' under Article 19(1)(a) extends to information about political party funding, as this is essential for voters to make informed choices. While the government argued for donor privacy, the Court found that this right was not absolute and did not justify the opaque nature of the scheme. The Court applied the test of proportionality, finding that the scheme was not the \"least restrictive\" measure to achieve the stated goal of curbing black money.",
+    "verdict_points": [
+      "The Electoral Bond Scheme, 2018 is struck down as unconstitutional.",
+      "Amendments to the Companies Act (removing 7.5% cap) and Representation of the People Act are declared void.",
+      "State Bank of India (SBI) is ordered to immediately cease issuing Electoral Bonds.",
+      "SBI must submit full details of all bonds purchased and redeemed since April 2019 to the ECI.",
+      "ECI must publish this information on its official website."
+    ],
+    "ratio_decidendi": "The non-disclosure provisions of the Electoral Bond Scheme are violative of the fundamental 'Right to Information' under Article 19(1)(a) of the Constitution. Anonymity in political funding is unconstitutional as it infringes upon the public's right to be informed, which is essential for the functioning of a true democracy and free and fair elections.",
+    "case_number": "Writ Petition (Civil) No. 880 of 2017",
+    "counsel_petitioner": "Adv. Prashant Bhushan",
+    "counsel_respondent": "Att. Gen. R. Venkataramani",
+    "hearing_dates": "Oct 31 - Nov 2, 2023"
+  }
+]
